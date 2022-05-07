@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   /* *{
+    margin: 0px;
+    padding: 0px;
+} */
+   #form{
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-left: 40%;   
+        
+    }
+    
+    input{
+        width: 38%;
+        height: 30px;
+        border-radius: 5px;
+        border-color: rgb(196, 194, 194);
+        padding-left: 20px;
+    }
+    #register{
+        background-color: rgb(196, 194, 194);
+        color: grey;
+        width: 39%;
+        margin-top: 10px;
+        margin-left: 5px;
+        font-size: large;
+        border-radius: 7px;
+        border-color: grey;
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    u{
+        color: blue;
+    }
+    .policy{
+        width: 45%;
+        margin-left: 10px;
+       line-height: 25px;
+       font-size: large;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Sign up</h1>
+    <form id="form">
+        <p>Email</p>
+        <input id="email" type="email" placeholder="Email">
+        <p>Phone Number</p>
+        <input id="number" type="number" placeholder="Number">
+        <p>Password</p>
+        <input id="password" type="text" placeholder="Password">
+        <br>
+        <p class="policy">By Signing up I accept all <u>Terms of Services</u> and acknowledgement the <u>Privacy Policy</u>  </p>
+       <div id="register" >Sign up</div>
+     
+       <p class="policy">Already have an account?<u>Sign in</u></p>
+    </form>
+    <!-- <button id="button">Sign Up</button> -->
+</body>
+</html>
+
+<script>
+
+    var login=JSON.parse(localStorage.getItem("information"))
+    
+    console.log(login)
+    
+    
+    document.querySelector("#register").addEventListener("click",clickme)
+    var info=JSON.parse(localStorage.getItem("information")) || []
+    
+    function  clickme(){
+        event.preventDefault()
+        // console.log("go on")
+    alert("Successfully Signed Up")
+   
+    
+        var data={
+           
+            email:document.querySelector("#email").value,
+            number:document.querySelector("#number").value,
+            password:document.querySelector("#password").value,
+           
+        }
+        // console.log(data)
+        info.push(data)
+        localStorage.setItem("information",JSON.stringify(info))
+        // window.location.reload()
+    }
+    console.log(info)
+    
+    </script>
+    

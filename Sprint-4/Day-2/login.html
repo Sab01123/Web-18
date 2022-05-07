@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #form{
+        display: block;
+        width: 50%;
+        margin: auto;
+        margin-left: 40%;   
+        
+    }
+    
+    input{
+        width: 38%;
+        height: 30px;
+        border-radius: 10px;
+        border-color: rgb(54, 22, 141);
+        padding-left: 20px;
+        font-size: large;
+    }
+    #black{
+        background-color: rgb(196, 194, 194);
+        color: grey;
+        width: 39%;
+        margin-top: 10px;
+        margin-left: 5px;
+        font-size: large;
+        border-radius: 7px;
+        border-color: grey;
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+   
+    </style>
+</head>
+<body>
+    <h1>Sign in</h1>
+    <form id="form">
+        <p>Email</p>
+        <input id="email" type="email" placeholder="Email">
+        <!-- <p>Phone Number</p>
+        <input id="number" type="number" placeholder="Number"> -->
+        <p>Password</p>
+        <input id="password" type="text" placeholder="Password">
+        <br>
+        <div id="black">Sign in</div>
+    </form>
+</body>
+</html>
+<script>
+      var login=JSON.parse(localStorage.getItem("information"))
+    
+    console.log(login)
+    
+    document.querySelector("#black").addEventListener("click",myFun)
+    
+    function myFun(){
+      // console.log("HI sabira")
+     
+       var a=document.querySelector("#email1").value;
+       var b=document.querySelector("#password1").value
+       console.log(a,b)
+        var data=[
+            {
+                email:document.querySelector("#email1").value,
+                password:document.querySelector("#password").value
+            }
+        ]
+        var prof=[]
+     
+        var flag=true;
+        if(login==null)
+        {
+            alert("Please Create an account")
+        }
+        else{
+            for(var i=0; i<login.length;i++)
+            {
+                if(login[i].email==a && login[i].password==b)
+                {    flag=false
+                    alert("Login successfull")
+                    prof.push(login[i].first)
+                    localStorage.setItem("profile",login[i].first)
+                    window.location.href="navbar.html"
+                    break;
+                }
+               
+            }
+        }
+        if(flag==true){
+            alert("incorrect credential")
+        }
+       
+     
+    
+    }
+
+</script>
